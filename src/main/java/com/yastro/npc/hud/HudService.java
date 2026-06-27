@@ -91,7 +91,7 @@ public final class HudService implements Listener {
                 case "link", "manual", "nuvem" -> {
                     this.url = c.url();
                     this.ready = !url.isBlank();
-                    if (!ready) plugin.getLogger().warning("HUD modo 'link' mas 'hud-url' está vazio — cole o link DIRETO do .zip "
+                    if (!ready) plugin.getLogger().warning("HUD modo 'link' mas 'hud-url' está vazio, cole o link DIRETO do .zip "
                             + "(ex: Dropbox com ?dl=1, Google Drive direto, GitHub Releases, MediaFire direto).");
                     else plugin.debug("HUD modo link: " + url);
                 }
@@ -99,7 +99,7 @@ public final class HudService implements Listener {
                 case "pasta", "off", "manual-cliente" -> {
                     this.url = ""; this.ready = false;
                     plugin.debug("HUD modo pasta: pack gerado em " + zip.getAbsolutePath()
-                            + " — NÃO empurrado. Distribua o .zip; o jogador coloca em .minecraft e ativa, ou você usa no server.properties.");
+                            + ", NÃO empurrado. Distribua o .zip; o jogador coloca em .minecraft e ativa, ou você usa no server.properties.");
                 }
 
                 case "local", "localhost" -> { if (!startLocal(c, zip)) return; }
@@ -152,7 +152,7 @@ public final class HudService implements Listener {
         try {
             server.start(port, zip);
         } catch (BindException be) {
-            plugin.getLogger().warning("HUD: porta " + port + " já está em uso — troque 'hud-porta' no config.");
+            plugin.getLogger().warning("HUD: porta " + port + " já está em uso, troque 'hud-porta' no config.");
             return false;
         } catch (Exception e) {
             plugin.getLogger().warning("HUD: não consegui abrir o servidor HTTP: " + e.getMessage());
@@ -163,7 +163,7 @@ public final class HudService implements Listener {
         if (host.isBlank()) host = plugin.getServer().getIp();
         if (host == null || host.isBlank()) {
             host = "127.0.0.1";
-            plugin.debug("HUD modo local SEM 'hud-host-publico' — usando 127.0.0.1 (só funciona no MESMO PC). "
+            plugin.debug("HUD modo local SEM 'hud-host-publico', usando 127.0.0.1 (só funciona no MESMO PC). "
                     + "Defina 'hud-host-publico' com o IP/domínio público e abra/encaminhe a porta " + port + ".");
         }
         this.url = "http://" + host + ":" + port + "/pack.zip";

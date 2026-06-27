@@ -1,5 +1,5 @@
 # ==========================================================
-#  ArcherNpc — config / configuração
+# ArcherNpc: config / configuração
 # ==========================================================
 
 # [EN] Plugin language for command/log/HUD messages: 'en' or 'pt-br'. (Config keys stay pt-BR.)
@@ -11,9 +11,9 @@ lang: pt-br
 debug: false
 
 # [EN] Master switch for ALL NPC spawning. Emergency brake: if an NPC is kicking players
-#      ("network error" on login), set 'false', restart, log in, fix it, then back to 'true'.
+# ("network error" on login), set 'false', restart, log in, fix it, then back to 'true'.
 # [PT] Liga/desliga TODO o spawn de NPCs. Freio de emergência: se um NPC estiver derrubando
-#      jogadores ("network error" no login), ponha 'false', reinicie, conserte, e volte para 'true'.
+# jogadores ("network error" no login), ponha 'false', reinicie, conserte, e volte para 'true'.
 tracking-ativo: true
 
 # [EN] Distance (blocks) at which a player starts seeing the NPC.
@@ -33,7 +33,7 @@ spawn-grace-ms: 1000
 cooldown-clique: 500
 
 # ==========================================================
-#  SKIN — resolução de skin de NPCs tipo 'player'
+# SKIN: resolução de skin de NPCs tipo 'player'
 # ==========================================================
 # [EN] Optional MineSkin API key for URL skins (avoids HTTP 429 rate-limit). Blank = anonymous.
 # [PT] Chave da API MineSkin (opcional) para skins por URL (evita HTTP 429 / limite de taxa). Vazio = anônimo.
@@ -47,18 +47,18 @@ skin-mineskin-url: ''
 rede-proxy: false
 
 # [EN] Transfer queue (proxy only): release players to the target server a few at a time, not all at once
-#      (stops a 200-player lobby from hammering the backend). fila-por-vez = players per batch ;
-#      fila-intervalo = ticks between batches (20 = 1s). Set fila-ativa false to transfer instantly.
+# (stops a 200-player lobby from hammering the backend). fila-por-vez = players per batch ;
+# fila-intervalo = ticks between batches (20 = 1s). Set fila-ativa false to transfer instantly.
 # [PT] Fila de transferência (só proxy): manda os jogadores pro servidor destino aos poucos, não todos de
-#      uma vez (evita 200 jogadores derrubarem o backend). fila-por-vez = por lote ;
-#      fila-intervalo = ticks entre lotes (20 = 1s). fila-ativa false = transfere na hora.
+# uma vez (evita 200 jogadores derrubarem o backend). fila-por-vez = por lote ;
+# fila-intervalo = ticks entre lotes (20 = 1s). fila-ativa false = transfere na hora.
 fila-ativa: true
 fila-por-vez: 1
 fila-intervalo: 20
 
 # ==========================================================
-#  HUD — on-screen images/logos/GIFs via a generated resource pack
-#  HUD — imagens/logos/GIFs na tela via resource pack gerado
+# HUD: on-screen images/logos/GIFs via a generated resource pack
+# HUD: imagens/logos/GIFs na tela via resource pack gerado
 # ==========================================================
 # [EN] Drop .png/.gif in plugins/ArcherNpc/hud_imagens/ ; the plugin builds a pack and pushes it. Use /npc hud.
 # [PT] Solte .png/.gif em plugins/ArcherNpc/hud_imagens/ ; o plugin gera um pack e empurra. Use /npc hud.
@@ -66,15 +66,15 @@ hud-ativo: true
 
 # ---------- HOW THE PLAYER DOWNLOADS THE PACK (hosting) / COMO O JOGADOR BAIXA O PACK ----------
 # [EN] local = plugin's own HTTP server (your PC, or VPS/dedicated with the port open). DEFAULT.
-#      link  = you host the .zip on a cloud (Dropbox ?dl=1 / Drive / GitHub / MediaFire) and paste the DIRECT link in 'hud-url'.
-#      pasta = generate the .zip in the plugin folder, do NOT push; players apply it manually.
-#      auto  = link (if set) -> local -> upload, in that order.
-#      upload= mc-packs.net free service — UNSTABLE (can 404). Not recommended.
+# link = you host the .zip on a cloud (Dropbox ?dl=1 / Drive / GitHub / MediaFire) and paste the DIRECT link in 'hud-url'.
+# pasta = generate the .zip in the plugin folder, do NOT push; players apply it manually.
+# auto = link (if set) -> local -> upload, in that order.
+# upload= mc-packs.net free service: UNSTABLE (can 404). Not recommended.
 # [PT] local = servidor HTTP do próprio plugin (seu PC, ou VPS/dedicado com a porta aberta). PADRÃO.
-#      link  = você hospeda o .zip numa nuvem (Dropbox ?dl=1 / Drive / GitHub / MediaFire) e cola o link DIRETO em 'hud-url'.
-#      pasta = gera o .zip na pasta do plugin e NÃO empurra; os jogadores aplicam manualmente.
-#      auto  = link (se tiver) -> local -> upload, nessa ordem.
-#      upload= serviço grátis mc-packs.net — INSTÁVEL (pode dar 404). Não recomendado.
+# link = você hospeda o .zip numa nuvem (Dropbox ?dl=1 / Drive / GitHub / MediaFire) e cola o link DIRETO em 'hud-url'.
+# pasta = gera o .zip na pasta do plugin e NÃO empurra; os jogadores aplicam manualmente.
+# auto = link (se tiver) -> local -> upload, nessa ordem.
+# upload= serviço grátis mc-packs.net: INSTÁVEL (pode dar 404). Não recomendado.
 hud-modo: local
 
 # [EN] Used by 'link' (required) and 'auto' (fallback): DIRECT link to the pack .zip (not an HTML page).
@@ -105,14 +105,14 @@ hud-logo: 'hud_logo.png'
 
 # ---------- IMAGE SIZE & POSITION (DEFAULTS) / TAMANHO E POSIÇÃO (PADRÃO) ----------
 # [EN] These are the DEFAULTS for new images. Each image can override them in the /npc hud GUI
-#      (saved per-image in hud_posicoes.yml). hud-exibir/altura/x/ascent below are just the fallback.
+# (saved per-image in hud_posicoes.yml). hud-exibir/altura/x/ascent below are just the fallback.
 # [PT] São os PADRÕES de imagens novas. Cada imagem pode sobrescrever no GUI /npc hud
-#      (salvo por imagem em hud_posicoes.yml). hud-exibir/altura/x/ascent abaixo são só o fallback.
-#   hud-altura  = scale / size (glyph height in px)            | escala / tamanho (altura do glifo em px)
-#   hud-x       = X position in px (+ right / - left)          | posição X em px (+ direita / - esquerda)
-#   hud-ascent  = Y position in px (higher = up; <= hud-altura)| posição Y em px (maior = sobe; <= hud-altura)
-#   hud-exibir  = title / actionbar / bossbar / chat           | onde aparece
-#   hud-hd-tile = on-screen px per HD tile (hud_imagens/hd/)   | px por tile das imagens HD
+# (salvo por imagem em hud_posicoes.yml). hud-exibir/altura/x/ascent abaixo são só o fallback.
+# hud-altura = scale / size (glyph height in px) | escala / tamanho (altura do glifo em px)
+# hud-x = X position in px (+ right / - left) | posição X em px (+ direita / - esquerda)
+# hud-ascent = Y position in px (higher = up; <= hud-altura)| posição Y em px (maior = sobe; <= hud-altura)
+# hud-exibir = title / actionbar / bossbar / chat | onde aparece
+# hud-hd-tile = on-screen px per HD tile (hud_imagens/hd/) | px por tile das imagens HD
 hud-altura: 128
 hud-x: 0
 hud-ascent: 80

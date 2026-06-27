@@ -41,4 +41,17 @@ bin/
 # servidor/proxy de teste (runtime, descartavel)
 testserver/
 testproxy/
+start-testnet.bat
+
+### Ferramentas de dev locais ###
+.mcp.json
+.claude/
+docs/superpowers/
+relatorios/
+
+### Segredos e dados locais ###
+.env
+*.env
+*.db
+*.sqlite
 

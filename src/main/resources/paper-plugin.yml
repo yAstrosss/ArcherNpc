@@ -5,7 +5,7 @@ bootstrapper: com.yastro.npc.YAstroNpcBootstrap
 api-version: '1.21'
 folia-supported: true
 authors: [ yastro ]
-description: 'NPCs de lobby por pacotes — Paper nativo.'
+description: 'NPCs de lobby por pacotes, Paper nativo.'
 dependencies:
   server:
     packetevents:

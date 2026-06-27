@@ -1,4 +1,4 @@
-# ArcherNpc — Manual completo de uso
+# ArcherNpc: Manual completo de uso
 
 > NPCs de lobby por **pacotes** (PacketEvents) para servidores **Paper 1.21.11**. Sem entidade no
 > servidor, sem lag de mob real. Tudo em **português**, com editor por GUI e sistema de **HUD**
@@ -18,7 +18,7 @@
 10. [Ações de clique](#10-ações-de-clique)
 11. [Brilho, escala, pose, equipamento](#11-brilho-escala-pose-equipamento)
 12. [Visibilidade e colisão](#12-visibilidade-e-colisão)
-13. [HUD — imagens/logos/GIFs na tela](#13-hud--imagenslogosgifs-na-tela)
+13. [HUD, imagens/logos/GIFs na tela](#13-hud--imagenslogosgifs-na-tela)
 14. [Hospedagem do pack (upload / auto / manual / local)](#14-hospedagem-do-pack)
 15. [Customizar o pack: texto, logo, nome, descrição](#15-customizar-o-pack-texto-logo-nome-descrição)
 16. [Rede / proxy (BungeeCord / Velocity)](#16-rede--proxy)
@@ -31,7 +31,7 @@
 
 ## 1. O que o plugin faz
 
-- **NPCs 100% por pacotes** — cada NPC é desenhado direto no cliente de cada jogador. Não existe
+- **NPCs 100% por pacotes**, cada NPC é desenhado direto no cliente de cada jogador. Não existe
   entidade no servidor, então não pesa no tick e não aparece em `/kill @e`.
 - **Aparências**: skin de jogador, qualquer **mob**, ou **item/bloco** em display (inclui modelos do
   **ItemsAdder/Nexo**).
@@ -40,7 +40,7 @@
 - **Etiquetas** (nome acima da cabeça) com múltiplas linhas e **PlaceholderAPI**.
 - **Olhar o jogador**, brilho colorido, escala, pose, equipamento nas 6 slots.
 - **Visibilidade** por todos / permissão / manual, e **skin-espelho** (NPC copia a skin de quem olha).
-- **Editor por GUI** completo em português — dá pra fazer quase tudo sem decorar comando.
+- **Editor por GUI** completo em português, dá pra fazer quase tudo sem decorar comando.
 - **HUD**: solte `.png`/`.gif` numa pasta, o plugin gera um resource pack e empurra pros jogadores;
   você mostra a imagem na tela como ação de clique do NPC.
 
@@ -50,7 +50,7 @@
 
 | Plugin | Obrigatório? | Para quê |
 |---|---|---|
-| **PacketEvents** | ✅ **Sim** | Base de todos os pacotes (spawn, skin, interação). Sem ele o plugin não liga. |
+| **PacketEvents** | **Sim** | Base de todos os pacotes (spawn, skin, interação). Sem ele o plugin não liga. |
 | **PlaceholderAPI** | Opcional | Placeholders nas etiquetas (`%player_name%` etc). |
 | **ItemsAdder** ou **Nexo** | Opcional | Modelos customizados em NPCs do tipo item/bloco ou no equipamento. |
 
@@ -61,7 +61,7 @@ Passos:
 3. Coloque o `ArcherNpc-v1.0-beta.jar` em `plugins/`.
 4. Inicie o servidor. No console deve aparecer:
    `ArcherNpc ativado (Paper nativo, NPCs por pacotes).`
-5. Confirme com `/plugins` — o ArcherNpc aparece na seção **Paper Plugins**.
+5. Confirme com `/plugins`, o ArcherNpc aparece na seção **Paper Plugins**.
 
 > O plugin detecta sozinho se o PacketEvents já está instalado como plugin separado e **não**
 > reinicializa por cima (isso quebraria os pacotes de todo mundo). Se você não tiver o plugin
@@ -72,15 +72,15 @@ Passos:
 ## 3. Primeiros passos (5 minutos)
 
 ```
-/npc criar loja            # cria um NPC com a SUA skin, virado pra onde você olha
-                           # → ele aparece na sua frente em instantes
+/npc criar loja # cria um NPC com a SUA skin, virado pra onde você olha
+                           # -> ele aparece na sua frente em instantes
 /npc nome loja &b&lLOJA|&7Clique para abrir
 /npc acao adicionar loja mensagem &aBem-vindo à loja!
-                           # → clique no NPC com botão direito: a mensagem aparece
-/npc editar loja           # abre o editor visual pra ajustar o resto no clique
+                           # -> clique no NPC com botão direito: a mensagem aparece
+/npc editar loja # abre o editor visual pra ajustar o resto no clique
 ```
 
-Pronto — você já tem um NPC clicável com nome e ação. O resto deste manual é "tudo que dá pra fazer".
+Pronto, você já tem um NPC clicável com nome e ação. O resto deste manual é "tudo que dá pra fazer".
 
 ---
 
@@ -92,7 +92,7 @@ Todo o comando `/npc` (e o alias `/npcs`) exige:
 archernpc.admin
 ```
 
-Dê só pra staff. Não há permissões separadas por subcomando — quem tem `archernpc.admin` pode tudo.
+Dê só pra staff. Não há permissões separadas por subcomando, quem tem `archernpc.admin` pode tudo.
 
 > A permissão usada na **visibilidade por permissão** dos NPCs é **outra coisa**: é um nó qualquer que
 > você escolhe por NPC (veja [Visibilidade](#12-visibilidade-e-colisão)).
@@ -126,10 +126,10 @@ Use `<obrigatório>` e `[opcional]`. O `<id>` tem **autocompletar** (TAB) com os
 | Comando | O que faz |
 |---|---|
 | `/npc nome <id> <texto>` | Define a etiqueta. Use `|` pra separar **linhas**. Texto vazio remove. Cores com `&`. |
-| `/npc skin <id> <valor>` | Define a skin. `<valor>` = **nick** (Mojang) ou **link http(s)** (via MineSkin) — autodetecta. |
+| `/npc skin <id> <valor>` | Define a skin. `<valor>` = **nick** (Mojang) ou **link http(s)** (via MineSkin), autodetecta. |
 
 > Brilho, escala, pose, equipamento, tipo (mob/item/bloco) e imagem-HUD são feitos pelo
-> **editor** (`/npc editar`). Veja as seções 6–11.
+> **editor** (`/npc editar`). Veja as seções 6-11.
 
 ### Ações de clique
 
@@ -145,7 +145,7 @@ Use `<obrigatório>` e `[opcional]`. O `<id>` tem **autocompletar** (TAB) com os
 |---|---|
 | `/npc colidir <id>` | Liga/desliga colisão (o jogador atravessar o NPC ou não). |
 | `/npc espelho <id>` | Liga/desliga **skin-espelho** (o NPC mostra a skin de quem está olhando). |
-| `/npc visibilidade <id>` | Cicla **todos → permissao → manual**. |
+| `/npc visibilidade <id>` | Cicla **todos -> permissao -> manual**. |
 | `/npc permissao <id> <perm>` | Define o nó de permissão usado quando a visibilidade é `permissao`. |
 | `/npc ver <id> <jogador>` | Liga/desliga (toggle) se um jogador **online** vê o NPC quando a visibilidade é `manual`. Salvo por UUID. |
 
@@ -165,24 +165,24 @@ Use `<obrigatório>` e `[opcional]`. O `<id>` tem **autocompletar** (TAB) com os
 
 | Botão | Função |
 |---|---|
-| 🟢 Skin | Digita um nick (chat) pra trocar a skin. |
-| 🏷️ Nome / Etiqueta | Digita o texto (use `|` entre linhas). |
-| 👁️ Olhar o jogador | Liga/desliga o NPC seguir você com a cabeça. |
-| 📖 Ações | Abre o submenu de ações (adicionar/remover/ordenar/trocar gatilho). |
-| ✨ Brilho (glow) | Liga/desliga o contorno brilhante. |
-| 🎨 Cor do brilho | Cicla entre 16 cores. |
-| 🟩 Escala | Esq +0.1 / Dir −0.1 (de 0.1x a 10x). |
-| 👤 Mostrar no tab | Liga/desliga o NPC aparecer na lista de jogadores (TAB). |
-| 🛡️ Aparência | Escolhe player / mob / item / bloco (com pickers paginados). |
-| 👢 Pose | normal / agachado / dormindo / nadando / sentado. |
-| 🧰 Equipamento | Digita `slot ref` (ex: `capacete minecraft:DIAMOND_HELMET`). |
-| 📄 Altura do nome | Sobe/desce a etiqueta (offset). |
-| ⛏️ Altura do NPC (Y) | Ajuste fino de altura do NPC. |
-| 🗺️ Imagem na tela (HUD) | Anexa uma imagem/gif ao clique do NPC (vira ação `imagem`). |
-| 🧭 Mover / Centralizar / Virar | Posição rápida. |
-| 📕 Copiar NPC | Digita um novo id pra duplicar. |
-| 🧱 Colisão / Skin-espelho / Visibilidade | Alternar comportamento. |
-| 🚫 Deletar | Remove o NPC. |
+| Skin | Digita um nick (chat) pra trocar a skin. |
+| Nome / Etiqueta | Digita o texto (use `|` entre linhas). |
+| Olhar o jogador | Liga/desliga o NPC seguir você com a cabeça. |
+| Ações | Abre o submenu de ações (adicionar/remover/ordenar/trocar gatilho). |
+| Brilho (glow) | Liga/desliga o contorno brilhante. |
+| Cor do brilho | Cicla entre 16 cores. |
+| Escala | Esq +0.1 / Dir −0.1 (de 0.1x a 10x). |
+| Mostrar no tab | Liga/desliga o NPC aparecer na lista de jogadores (TAB). |
+| Aparência | Escolhe player / mob / item / bloco (com pickers paginados). |
+| Pose | normal / agachado / dormindo / nadando / sentado. |
+| Equipamento | Digita `slot ref` (ex: `capacete minecraft:DIAMOND_HELMET`). |
+| Altura do nome | Sobe/desce a etiqueta (offset). |
+| Altura do NPC (Y) | Ajuste fino de altura do NPC. |
+| Imagem na tela (HUD) | Anexa uma imagem/gif ao clique do NPC (vira ação `imagem`). |
+| Mover / Centralizar / Virar | Posição rápida. |
+| Copiar NPC | Digita um novo id pra duplicar. |
+| Colisão / Skin-espelho / Visibilidade | Alternar comportamento. |
+| Deletar | Remove o NPC. |
 
 **Entrada por chat:** quando o editor pede um texto (skin, nome, equipamento, copiar...), ele fecha o
 menu e espera a sua próxima mensagem no chat. Digite `cancelar` pra abortar. Funciona inclusive se você
@@ -192,13 +192,13 @@ começar com `/`.
 
 ## 7. Aparência: player, mob, item, bloco
 
-No editor → **Aparência**. Quatro categorias:
+No editor -> **Aparência**. Quatro categorias:
 
-- **Player (skin)** — o NPC é um jogador falso (usa a skin definida; veja seção 8).
-- **Entidade / Mob** — qualquer entidade viva e spawnável do Minecraft (zumbi, aldeão, allay, vaca...).
+- **Player (skin)**, o NPC é um jogador falso (usa a skin definida; veja seção 8).
+- **Entidade / Mob**, qualquer entidade viva e spawnável do Minecraft (zumbi, aldeão, allay, vaca...).
   Picker paginado, ou "Digitar manualmente" (ex: `cow`, `zombie`, `allay`).
-- **Item (display)** — qualquer item, exibido como display. Inclui `minecraft:ID`, **`nexo:id`**, **`itemsadder:id`**.
-- **Bloco (display)** — qualquer bloco, exibido como display.
+- **Item (display)**, qualquer item, exibido como display. Inclui `minecraft:ID`, **`nexo:id`**, **`itemsadder:id`**.
+- **Bloco (display)**, qualquer bloco, exibido como display.
 
 > Modelos do **ItemsAdder/Nexo** são resolvidos por reflexão: funciona se o plugin estiver instalado,
 > e simplesmente cai pro item padrão se não estiver (sem erro).
@@ -207,9 +207,9 @@ No editor → **Aparência**. Quatro categorias:
 
 ## 8. Skin
 
-- **Por nick**: `/npc skin <id> <nick>` ou editor → Skin → digita o nome de um jogador (a skin da conta
-  Mojang dele é baixada, em cache, e aplicada). O download é assíncrono — a skin "chega" em instantes.
-- **Por URL** (link de imagem): `/npc skin <id> https://.../skin.png` — se o valor começa com `http(s)`,
+- **Por nick**: `/npc skin <id> <nick>` ou editor -> Skin -> digita o nome de um jogador (a skin da conta
+  Mojang dele é baixada, em cache, e aplicada). O download é assíncrono, a skin "chega" em instantes.
+- **Por URL** (link de imagem): `/npc skin <id> https://.../skin.png`, se o valor começa com `http(s)`,
   o plugin resolve a skin pelo **MineSkin** automaticamente. Funciona sem configurar nada, mas com limite
   de taxa (pode falhar em uso intenso). Depende do MineSkin estar no ar.
 - **Skin-espelho** (`/npc espelho <id>` ou botão no editor): o NPC mostra a **skin de quem está olhando**.
@@ -227,7 +227,7 @@ No editor → **Aparência**. Quatro categorias:
 - Cada `|` vira uma **linha** flutuando acima da cabeça.
 - Cores e formatação com `&` (ex: `&b&lLOJA`, `&7clique`).
 - Com **PlaceholderAPI** instalado, placeholders são resolvidos **por jogador** (ex:
-  `&aOlá %player_name%`) e atualizam sozinhos (sem piscar — só reenvia quando o texto muda).
+  `&aOlá %player_name%`) e atualizam sozinhos (sem piscar, só reenvia quando o texto muda).
 - Texto vazio remove a etiqueta.
 - A altura da etiqueta se ajusta no editor (**Altura do nome / offset**).
 
@@ -247,25 +247,25 @@ As ações rodam **na ordem** da lista quando o NPC é clicado.
 | `som` | `minecraft:ui.button.click` ou `ENTITY_VILLAGER_YES` | Toca um som. |
 | `menu` | `loja` | Atalho pra `menu <valor>` (integra com plugins de menu). |
 | `conectar` | `lobby2` | Manda o jogador pra outro servidor da rede (**exige `rede-proxy: true`**, seção 16). |
-| `comando-op` | `warp vip` | Roda o comando **como o jogador com OP temporário** (sempre removido depois). %player% vira o nome. ⚠️ poderoso — só staff configura. |
+| `comando-op` | `warp vip` | Roda o comando **como o jogador com OP temporário** (sempre removido depois). %player% vira o nome. poderoso, só staff configura. |
 | `imagem` | `qr` ou `qr;5` | Mostra a **imagem/GIF do HUD** `qr` por N segundos (padrão 5). Veja abaixo. |
 | `esperar` | `5` / `5s` / `20t` | **Pausa** e adia o resto da lista: número/`s` = segundos, `t` = ticks. |
 | `aleatorio` | (sem valor) | **Escolhe UMA** das ações listadas **depois** dela e roda só essa (sorteio). |
 | `travar` | (sem valor) | **Barreira**: trava o NPC pra esse jogador até a sequência terminar (bloqueia spam em sequências com `esperar`). |
 
-**Gatilho (botão) por ação:** cada ação tem um gatilho — `direito` (padrão), `esquerdo` ou `qualquer`.
-Troque no editor (submenu Ações → clique esquerdo no item cicla o gatilho).
+**Gatilho (botão) por ação:** cada ação tem um gatilho, `direito` (padrão), `esquerdo` ou `qualquer`.
+Troque no editor (submenu Ações -> clique esquerdo no item cicla o gatilho).
 
-**Ordem e "ao terminar":** a ação `imagem` é especial — ela mostra a imagem e **adia** o resto da
+**Ordem e "ao terminar":** a ação `imagem` é especial, ela mostra a imagem e **adia** o resto da
 lista até a imagem acabar. Ou seja, **tudo que vier depois de um `imagem` na lista é a "ação ao
 terminar"**. Exemplo:
 
 ```
-0. imagem  promo;5
+0. imagem promo;5
 1. mensagem &aObrigado por assistir!
 2. comando loja
 ```
-→ mostra `promo` por 5s; quando acaba, manda a mensagem e abre a loja.
+ -> mostra `promo` por 5s; quando acaba, manda a mensagem e abre a loja.
 
 **Sequências com tempo e sorteio:** `esperar` e `imagem` adiam o resto da lista; `aleatorio` ramifica.
 Exemplos:
@@ -293,10 +293,10 @@ Exemplos:
 
 Tudo no editor (`/npc editar`):
 
-- **Brilho (glow)** + **cor** — contorno brilhante; 16 cores (white, red, gold, aqua, blue, ...).
-- **Escala** — de 0.1x a 10x (passo 0.1).
-- **Pose** — normal / agachado / dormindo / nadando / sentado.
-- **Equipamento** — 6 slots, formato `slot ref`:
+- **Brilho (glow)** + **cor**, contorno brilhante; 16 cores (white, red, gold, aqua, blue, ...).
+- **Escala**, de 0.1x a 10x (passo 0.1).
+- **Pose**, normal / agachado / dormindo / nadando / sentado.
+- **Equipamento**, 6 slots, formato `slot ref`:
   - slots: `capacete`, `peito`, `calca`, `bota`, `mao`, `secundaria`
   - ref: `minecraft:DIAMOND_HELMET`, `nexo:<id>`, `itemsadder:<id>`; `remover` limpa o slot.
   - ex: `capacete minecraft:NETHERITE_HELMET`
@@ -307,20 +307,20 @@ Tudo no editor (`/npc editar`):
 
 - **Colisão** (`/npc colidir <id>`): se o jogador atravessa o NPC ou esbarra nele.
 - **Visibilidade** (`/npc visibilidade <id>` cicla):
-  - `todos` — todo mundo vê (padrão).
-  - `permissao` — só quem tem o nó definido em `/npc permissao <id> <perm>` vê.
-  - `manual` — escondido por padrão; só vê quem você libera com `/npc ver <id> <jogador>`.
+  - `todos`, todo mundo vê (padrão).
+  - `permissao`, só quem tem o nó definido em `/npc permissao <id> <perm>` vê.
+  - `manual`, escondido por padrão; só vê quem você libera com `/npc ver <id> <jogador>`.
 
 **Visibilidade manual passo a passo:**
 1. `/npc visibilidade <id>` até ficar em `manual`.
-2. `/npc ver <id> <jogador>` (jogador **online**) — libera; rode de novo pra revogar (toggle).
+2. `/npc ver <id> <jogador>` (jogador **online**), libera; rode de novo pra revogar (toggle).
 3. A liberação é salva por **UUID**, então persiste reinício e vale quando o jogador reconectar.
 
 Distância em que o NPC aparece: `distancia-visao` no `config.yml`.
 
 ---
 
-## 13. HUD — imagens/logos/GIFs na tela
+## 13. HUD: imagens/logos/GIFs na tela
 
 O HUD transforma `.png`/`.gif` em **glifos de fonte** dentro de um resource pack gerado na hora, e
 mostra na tela do jogador (title/actionbar/chat). Serve pra logos, QR codes, banners, "assista e ganhe", etc.
@@ -329,13 +329,13 @@ mostra na tela do jogador (title/actionbar/chat). Serve pra logos, QR codes, ban
 
 1. Pasta criada sozinha: `plugins/ArcherNpc/hud_imagens/`
    - Solte `.png` ou `.gif` aqui. O **nome do arquivo** (sem extensão, minúsculo) vira o **id** da imagem.
-   - Subpasta `hud_imagens/hd/` → imagens grandes são **fatiadas em grade** (alta resolução na tela).
+   - Subpasta `hud_imagens/hd/` -> imagens grandes são **fatiadas em grade** (alta resolução na tela).
 2. `/npc hud recarregar` (ou reinicie). O console mostra quais imagens entraram.
 3. `/npc hud <id> [segundos]` pra testar em você.
 
 ### Como mostrar pro jogador
 
-- **No clique de um NPC**: editor → **Imagem na tela (HUD)** → escolhe a imagem (esq=5s, dir=10s,
+- **No clique de um NPC**: editor -> **Imagem na tela (HUD)** -> escolhe a imagem (esq=5s, dir=10s,
   shift=30s). Isso cria a ação `imagem <id>;<segundos>`.
 - Ou direto: `/npc acao adicionar <id> imagem <imgId>;<segundos>`.
 
@@ -354,22 +354,22 @@ GUI `/npc hud`, ou no `config.yml`:
 Pra o jogador ver as imagens, o cliente precisa **baixar o pack**. O `hud-modo` decide como ele é
 publicado. Análise honesta de cada opção:
 
-### `upload` (padrão, recomendado) — mc-packs.net
-- ✅ **Zero configuração**, funciona atrás de NAT/firewall, **não precisa abrir porta**.
-- ✅ Ideal pra host **compartilhada/limitada** (só usa HTTP de saída).
-- ⚠️ Depende de um serviço **grátis de terceiros** (mc-packs.net) ficar no ar. Se ele cair, a HUD
+### `upload` (padrão, recomendado): mc-packs.net
+- **Zero configuração**, funciona atrás de NAT/firewall, **não precisa abrir porta**.
+- Ideal pra host **compartilhada/limitada** (só usa HTTP de saída).
+- Depende de um serviço **grátis de terceiros** (mc-packs.net) ficar no ar. Se ele cair, a HUD
   para até voltar. O pack vira público no CDN deles.
 - **Use quando:** você não controla o servidor (host compartilhada) e quer que "simplesmente funcione".
 
 ### `auto` (upload com rede de segurança)
 - Tenta `upload`; se falhar, usa o `hud-url` que você definiu; se não tiver, cai pro `local`.
-- ✅ Melhor confiabilidade sem perder a praticidade do upload.
+- Melhor confiabilidade sem perder a praticidade do upload.
 - **Use quando:** quer o upload, mas com um plano B automático.
 
-### `manual` (você hospeda) — **mais confiável a longo prazo**
+### `manual` (você hospeda): **mais confiável a longo prazo**
 - Você sobe o `hud_pack.zip` (gerado em `plugins/ArcherNpc/`) num lugar **seu** e cola o link em `hud-url`.
-- ✅ Controle total, permanente, rápido. **Recomendado para servidores sérios.**
-- ⚠️ Você re-sobe o zip e atualiza o link **toda vez que o pack mudar** (adicionou imagem, mudou escala...).
+- Controle total, permanente, rápido. **Recomendado para servidores sérios.**
+- Você re-sobe o zip e atualiza o link **toda vez que o pack mudar** (adicionou imagem, mudou escala...).
 - **Hospedagens grátis e estáveis recomendadas:**
   - **GitHub Releases** + **jsDelivr** (CDN grátis): suba o `hud_pack.zip` num release e use
     `https://cdn.jsdelivr.net/gh/<user>/<repo>@<tag>/hud_pack.zip`.
@@ -377,9 +377,9 @@ publicado. Análise honesta de cada opção:
 
 ### `local` (servidor HTTP interno do plugin)
 - O plugin sobe um HTTP na `hud-porta` servindo o zip, em **todas as interfaces**.
-- ⚠️ Só funciona se os jogadores **alcançam o IP:porta** da sua máquina: exige a **porta aberta/
+- Só funciona se os jogadores **alcançam o IP:porta** da sua máquina: exige a **porta aberta/
   encaminhada** e o **IP/domínio público** em `hud-host-publico`.
-- ❌ Em host **compartilhada** normalmente **não** dá (sem porta extra).
+- Em host **compartilhada** normalmente **não** dá (sem porta extra).
 - **Use quando:** VPS/dedicado com porta liberada e você não quer depender de serviço externo.
 
 > **Correção importante nesta versão:** antes o modo `local` ficava preso em `127.0.0.1` (só
@@ -412,7 +412,7 @@ Tudo no `config.yml`, sem mexer em código. Aceita cores `&` e `\n` pra quebrar 
 
 1. Salve um PNG **quadrado** (128×128 ou 256×256 fica ótimo).
 2. Coloque em `plugins/ArcherNpc/` com o nome que estiver em `hud-logo` (padrão `hud_logo.png`).
-3. `/npc hud recarregar`. Pronto — o ícone vai junto no pack (vira `pack.png`).
+3. `/npc hud recarregar`. Pronto, o ícone vai junto no pack (vira `pack.png`).
 
 Se a imagem não for quadrada, o plugin centraliza num quadrado transparente (sem distorcer). Deixe
 `hud-logo: ''` pra não ter ícone.
@@ -437,11 +437,11 @@ hud-forcar: false
 A ação `conectar <servidor>` (mandar o jogador pra outro backend) usa o canal `BungeeCord`
 (Velocity também fala esse canal).
 
-- `config.yml` → `rede-proxy: true`.
+- `config.yml` -> `rede-proxy: true`.
 - Reinicie. O plugin registra o canal de saída.
-- Use `/npc acao adicionar hub conectar lobby2` → clicar envia pro `lobby2`.
+- Use `/npc acao adicionar hub conectar lobby2` -> clicar envia pro `lobby2`.
 
-Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log e não faz nada — sem erro.
+Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log e não faz nada, sem erro.
 
 ---
 
@@ -456,14 +456,14 @@ Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log 
 | Chave | Padrão | Significado |
 |---|---|---|
 | `lang` | `pt-br` | Idioma das mensagens de comando/log/HUD: `en` ou `pt-br`. Carrega `messages_<lang>.yml`. (As chaves do config seguem em pt-BR.) |
-| `tracking-ativo` | `true` | Liga/desliga TODO o spawn de NPCs (freio de emergência — veja problemas). |
+| `tracking-ativo` | `true` | Liga/desliga TODO o spawn de NPCs (freio de emergência, veja problemas). |
 | `distancia-visao` | `48` | Distância (blocos) em que o jogador começa a ver o NPC. |
 | `intervalo-tracking` | `10` | A cada quantos ticks o plugin recalcula quem vê cada NPC (20 ticks = 1s). |
 | `spawn-grace-ms` | `1000` | Carência (ms) após o login antes de spawnar NPCs (evita travar o login). `0` = imediato. |
 | `cooldown-clique` | `500` | Tempo mínimo (ms) entre dois cliques no mesmo NPC pelo mesmo jogador (mín. efetivo 200). |
 | `rede-proxy` | `false` | `true` habilita a ação `conectar` (rede com proxy). |
 
-### HUD — geral
+### HUD: geral
 
 | Chave | Padrão | Significado |
 |---|---|---|
@@ -473,7 +473,7 @@ Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log 
 | `hud-ascent` | `80` | Posição vertical do glifo. **Mantenha ≤ `hud-altura`.** |
 | `hud-hd-tile` | `16` | Tamanho na tela de cada tile das imagens em `hud_imagens/hd/`. |
 
-### HUD — hospedagem
+### HUD: hospedagem
 
 | Chave | Padrão | Significado |
 |---|---|---|
@@ -482,12 +482,12 @@ Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log 
 | `hud-porta` | `8123` | Porta do servidor HTTP interno (modo `local`). |
 | `hud-host-publico` | `''` | IP/domínio público que os jogadores usam (modo `local`). Vazio = tenta `server-ip`, senão 127.0.0.1. |
 
-### HUD — texto e visual do pack
+### HUD: texto e visual do pack
 
 | Chave | Padrão | Significado |
 |---|---|---|
 | `hud-prompt` | (texto exemplo) | Mensagem na tela "Baixar pacote?". `&` cores, `\n` quebra linha. Vazio = padrão do cliente. |
-| `hud-forcar` | `false` | Obriga aceitar o pack (`true`) — quem recusa é desconectado. |
+| `hud-forcar` | `false` | Obriga aceitar o pack (`true`), quem recusa é desconectado. |
 | `hud-pack-nome` | `&bSEU SERVER &fHUD` | Nome do pack (linha 1 da descrição). |
 | `hud-pack-descricao` | (texto exemplo) | Descrição do pack (linha 2). |
 | `hud-logo` | `hud_logo.png` | PNG do ícone do pack (em `plugins/ArcherNpc/`). Vazio = sem ícone. |
@@ -498,14 +498,14 @@ Com `rede-proxy: false` (servidor único), a ação `conectar` só avisa no log 
 
 ```
 plugins/ArcherNpc/
-├── config.yml              # configurações (este manual, seção 17)
-├── messages_pt-br.yml      # mensagens pt-BR (editável) — usado se lang: pt-br
-├── messages_en.yml         # mensagens em inglês (editável) — usado se lang: en
-├── npcs/<id>.yml           # 1 arquivo por NPC (posição, skin, ações, aparência...)
-├── hud_imagens/            # solte .png/.gif aqui (id = nome do arquivo)
-│   └── hd/                 # imagens grandes (fatiadas em grade de alta resolução)
-├── hud_logo.png            # (opcional) ícone do pack — nome configurável em hud-logo
-└── hud_pack.zip            # o resource pack gerado (use este no modo 'manual')
+├── config.yml # configurações (este manual, seção 17)
+├── messages_pt-br.yml # mensagens pt-BR (editável), usado se lang: pt-br
+├── messages_en.yml # mensagens em inglês (editável), usado se lang: en
+├── npcs/<id>.yml # 1 arquivo por NPC (posição, skin, ações, aparência...)
+├── hud_imagens/ # solte .png/.gif aqui (id = nome do arquivo)
+│ └── hd/ # imagens grandes (fatiadas em grade de alta resolução)
+├── hud_logo.png # (opcional) ícone do pack, nome configurável em hud-logo
+└── hud_pack.zip # o resource pack gerado (use este no modo 'manual')
 ```
 
 Cada NPC é um YAML com chaves em português (`mundo-uuid`, `x/y/z`, `skin.*`, `acoes`, `tipo`,
@@ -526,12 +526,12 @@ Cada NPC é um YAML com chaves em português (`mundo-uuid`, `x/y/z`, `skin.*`, `
 - A **visibilidade** não está `manual` (esconde de todos) nem `permissao` sem você ter o nó?
 
 **A skin não carrega / fica Steve**
-- Download é assíncrono — espere alguns segundos.
+- Download é assíncrono, espere alguns segundos.
 - O nick existe na Mojang? Skin por URL não é suportada (use nick ou espelho).
 
 **O pack não baixa / fica "vermelho" (falhou)**
 - O console loga o status de cada jogador: `[HUD] <jogador> resource pack: <STATUS>`.
-- `upload`: o serviço mc-packs.net pode estar fora — tente `auto` ou `manual`.
+- `upload`: o serviço mc-packs.net pode estar fora, tente `auto` ou `manual`.
 - `local`: a `hud-porta` está **aberta/encaminhada**? `hud-host-publico` é alcançável de fora?
 - `manual`: o `hud-url` é **link direto** pro `.zip` (não uma página HTML)?
 
@@ -545,7 +545,7 @@ Cada NPC é um YAML com chaves em português (`mundo-uuid`, `x/y/z`, `skin.*`, `
 
 ## 20. Status do projeto
 
-### ✅ Pronto e funcionando
+### Pronto e funcionando
 - Boot Paper-nativo + PacketEvents (com guarda pra não quebrar PacketEvents de outros plugins).
 - NPCs por pacote: criar/deletar/listar/copiar, persistência por arquivo, visibilidade por distância
   e por viewer, limpeza de sessão ao sair.
@@ -559,16 +559,16 @@ Cada NPC é um YAML com chaves em português (`mundo-uuid`, `x/y/z`, `skin.*`, `
 - Tipos: player, **qualquer mob**, item/bloco em display, incluindo **ItemsAdder/Nexo** (por reflexão).
 - Visibilidade `todos`/`permissao`/**`manual`** (com `/npc ver`), colisão, mostrar no tab.
 - **Editor por GUI** completo (pt-BR) + entrada por chat.
-- **Sistema de HUD**: png/gif/HD → resource pack gerado, hospedagem `upload`/`auto`/`manual`/`local`,
+- **Sistema de HUD**: png/gif/HD -> resource pack gerado, hospedagem `upload`/`auto`/`manual`/`local`,
   e **customização do pack** (prompt, logo, nome, descrição, forçar).
 
-### ⚠️ Observações
+### Observações
 - **Skin por URL** depende do **MineSkin** estar no ar; sem API key há limite de taxa
   (defina `skin-mineskin-key`).
 - **`comando-op`** dá OP temporário ao jogador durante o comando (sempre removido depois). Configure
-  com cuidado — é um recurso de admin.
+  com cuidado, é um recurso de admin.
 - Refactors internos/cosméticos pendentes (extrair `LookMath`, teste de mira, separar `GlowService`,
-  `EquipmentData` como record) — **não afetam o uso**, só organização do código.
+  `EquipmentData` como record), **não afetam o uso**, só organização do código.
 
-> Resumo: o plugin está **completo pra um lobby** — criar NPCs, aparências, ações simples e avançadas,
+> Resumo: o plugin está **completo pra um lobby**, criar NPCs, aparências, ações simples e avançadas,
 > nameplate, visibilidade manual/permissão, skins por nick/URL/espelho e HUD com logo customizada.

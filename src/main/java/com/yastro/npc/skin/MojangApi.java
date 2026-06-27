@@ -42,7 +42,7 @@ public interface MojangApi {
             HttpResponse<String> r = http.send(b.build(), HttpResponse.BodyHandlers.ofString());
             if (r.statusCode() / 100 != 2 || r.body() == null || r.body().isBlank()) {
                 throw new IllegalStateException("MineSkin HTTP " + r.statusCode()
-                        + (r.statusCode() == 429 ? " (limite de taxa — tente uma API key em skin-mineskin-key)" : ""));
+                        + (r.statusCode() == 429 ? " (limite de taxa, tente uma API key em skin-mineskin-key)" : ""));
             }
 
             SkinData found = findTexture(JsonParser.parseString(r.body()));

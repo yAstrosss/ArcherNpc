@@ -63,9 +63,9 @@ public final class HudPackGenerator {
         this.log = log != null ? log : s -> {};
     }
 
-    private int hOf(String id)       { return cfg != null ? cfg.altura(id, gHeight) : gHeight; }
-    private int ascOf(String id)     { return cfg != null ? cfg.ascent(id, gAscent) : gAscent; }
-    private int xOf(String id)       { return cfg != null ? cfg.x(id, gX) : gX; }
+    private int hOf(String id) { return cfg != null ? cfg.altura(id, gHeight) : gHeight; }
+    private int ascOf(String id) { return cfg != null ? cfg.ascent(id, gAscent) : gAscent; }
+    private int xOf(String id) { return cfg != null ? cfg.x(id, gX) : gX; }
     private String spaceFor(int adv) { return adv != 0 ? space(adv) : ""; }
 
     private static String baseOf(String id) { int at = id.indexOf('@'); return at < 0 ? id : id.substring(0, at); }
@@ -169,7 +169,7 @@ public final class HudPackGenerator {
             put("pack.png", draw(src, side, side, (side - nw) / 2, (side - nh) / 2, nw, nh));
             log.accept("[HUD] logo do pack: " + icon.getName() + " (" + side + "x" + side + ")");
         } catch (Exception e) {
-            log.accept("[HUD] logo " + icon.getName() + ": falha (" + e.getMessage() + ") — pack sem ícone.");
+            log.accept("[HUD] logo " + icon.getName() + ": falha (" + e.getMessage() + "), pack sem ícone.");
         }
     }
 
