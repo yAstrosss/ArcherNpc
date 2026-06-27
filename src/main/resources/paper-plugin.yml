@@ -1,0 +1,33 @@
+name: ArcherNpc
+version: '${version}'
+main: com.yastro.npc.YAstroNpcPlugin
+bootstrapper: com.yastro.npc.YAstroNpcBootstrap
+api-version: '1.21'
+folia-supported: true
+authors: [ yastro ]
+description: 'NPCs de lobby por pacotes — Paper nativo.'
+dependencies:
+  server:
+    packetevents:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    PlaceholderAPI:
+      load: BEFORE
+      required: false
+      join-classpath: true
+    ItemsAdder:
+      load: BEFORE
+      required: false
+      join-classpath: true
+    Nexo:
+      load: BEFORE
+      required: false
+      join-classpath: true
+permissions:
+  archernpc.admin:
+    description: 'Acesso total ao comando /npc (criar/editar/remover NPCs).'
+    default: op
+  archernpc.action.privileged:
+    description: 'Permite acionar ações privilegiadas de NPC (console / comando-op) sem permissão própria configurada.'
+    default: op

@@ -1,0 +1,124 @@
+# ==========================================================
+#  ArcherNpc — config / configuração
+# ==========================================================
+
+# [EN] Plugin language for command/log/HUD messages: 'en' or 'pt-br'. (Config keys stay pt-BR.)
+# [PT] Idioma das mensagens de comando/log/HUD: 'en' ou 'pt-br'. (As chaves seguem em pt-BR.)
+lang: pt-br
+
+# [EN] Verbose debug logs (HUD build steps, pack-host info, resource-pack status). false = clean console.
+# [PT] Logs de debug detalhados (passos do HUD, host do pack, status do resource pack). false = console limpo.
+debug: false
+
+# [EN] Master switch for ALL NPC spawning. Emergency brake: if an NPC is kicking players
+#      ("network error" on login), set 'false', restart, log in, fix it, then back to 'true'.
+# [PT] Liga/desliga TODO o spawn de NPCs. Freio de emergência: se um NPC estiver derrubando
+#      jogadores ("network error" no login), ponha 'false', reinicie, conserte, e volte para 'true'.
+tracking-ativo: true
+
+# [EN] Distance (blocks) at which a player starts seeing the NPC.
+# [PT] Distância (em blocos) em que o jogador começa a ver o NPC.
+distancia-visao: 48
+
+# [EN] How often (ticks) the plugin recomputes who sees each NPC (20 ticks = 1s).
+# [PT] A cada quantos ticks o plugin verifica quem deve ver cada NPC (20 ticks = 1 segundo).
+intervalo-tracking: 10
+
+# [EN] Grace (ms) after login before sending NPCs, so packets don't disrupt the loading client. 0 = instant.
+# [PT] Carência (ms) após entrar antes de spawnar NPCs, p/ não atrapalhar o login. 0 = imediato.
+spawn-grace-ms: 1000
+
+# [EN] Minimum time (ms) between two clicks on the same NPC by the same player (also kills the double-fire). Min 200.
+# [PT] Tempo mínimo (ms) entre dois cliques no mesmo NPC pelo mesmo jogador (evita clique duplo). Mín. 200.
+cooldown-clique: 500
+
+# ==========================================================
+#  SKIN — resolução de skin de NPCs tipo 'player'
+# ==========================================================
+# [EN] Optional MineSkin API key for URL skins (avoids HTTP 429 rate-limit). Blank = anonymous.
+# [PT] Chave da API MineSkin (opcional) para skins por URL (evita HTTP 429 / limite de taxa). Vazio = anônimo.
+skin-mineskin-key: ''
+# [EN] Override the MineSkin endpoint. Blank = default (https://api.mineskin.org/generate/url).
+# [PT] Sobrescreve o endpoint do MineSkin. Vazio = padrão (https://api.mineskin.org/generate/url).
+skin-mineskin-url: ''
+
+# [EN] Behind a proxy (Velocity/BungeeCord)? 'true' enables the "conectar" action. 'false' = standalone.
+# [PT] Está atrás de um proxy (Velocity/BungeeCord)? 'true' habilita a ação "conectar". 'false' = servidor único.
+rede-proxy: false
+
+# [EN] Transfer queue (proxy only): release players to the target server a few at a time, not all at once
+#      (stops a 200-player lobby from hammering the backend). fila-por-vez = players per batch ;
+#      fila-intervalo = ticks between batches (20 = 1s). Set fila-ativa false to transfer instantly.
+# [PT] Fila de transferência (só proxy): manda os jogadores pro servidor destino aos poucos, não todos de
+#      uma vez (evita 200 jogadores derrubarem o backend). fila-por-vez = por lote ;
+#      fila-intervalo = ticks entre lotes (20 = 1s). fila-ativa false = transfere na hora.
+fila-ativa: true
+fila-por-vez: 1
+fila-intervalo: 20
+
+# ==========================================================
+#  HUD — on-screen images/logos/GIFs via a generated resource pack
+#  HUD — imagens/logos/GIFs na tela via resource pack gerado
+# ==========================================================
+# [EN] Drop .png/.gif in plugins/ArcherNpc/hud_imagens/ ; the plugin builds a pack and pushes it. Use /npc hud.
+# [PT] Solte .png/.gif em plugins/ArcherNpc/hud_imagens/ ; o plugin gera um pack e empurra. Use /npc hud.
+hud-ativo: true
+
+# ---------- HOW THE PLAYER DOWNLOADS THE PACK (hosting) / COMO O JOGADOR BAIXA O PACK ----------
+# [EN] local = plugin's own HTTP server (your PC, or VPS/dedicated with the port open). DEFAULT.
+#      link  = you host the .zip on a cloud (Dropbox ?dl=1 / Drive / GitHub / MediaFire) and paste the DIRECT link in 'hud-url'.
+#      pasta = generate the .zip in the plugin folder, do NOT push; players apply it manually.
+#      auto  = link (if set) -> local -> upload, in that order.
+#      upload= mc-packs.net free service — UNSTABLE (can 404). Not recommended.
+# [PT] local = servidor HTTP do próprio plugin (seu PC, ou VPS/dedicado com a porta aberta). PADRÃO.
+#      link  = você hospeda o .zip numa nuvem (Dropbox ?dl=1 / Drive / GitHub / MediaFire) e cola o link DIRETO em 'hud-url'.
+#      pasta = gera o .zip na pasta do plugin e NÃO empurra; os jogadores aplicam manualmente.
+#      auto  = link (se tiver) -> local -> upload, nessa ordem.
+#      upload= serviço grátis mc-packs.net — INSTÁVEL (pode dar 404). Não recomendado.
+hud-modo: local
+
+# [EN] Used by 'link' (required) and 'auto' (fallback): DIRECT link to the pack .zip (not an HTML page).
+# [PT] Usado por 'link' (obrigatório) e 'auto' (fallback): link DIRETO do .zip (não uma página HTML).
+hud-url: ''
+
+# [EN] 'local' mode: hud-porta = internal HTTP port (must be free + open). hud-host-publico = public IP/domain players use (blank = server-ip, else 127.0.0.1).
+# [PT] modo 'local': hud-porta = porta do HTTP interno (livre + aberta). hud-host-publico = IP/domínio público dos jogadores (vazio = server-ip, senão 127.0.0.1).
+hud-porta: 8123
+hud-host-publico: ''
+
+# ---------- PACK TEXT & LOOK (what the player sees) / TEXTO E VISUAL DO PACK ----------
+# [EN] Message on the "download resource pack?" screen. & colour codes, \n newline. Blank = client default.
+# [PT] Mensagem na tela "Baixar pacote?". Cores com & e quebra de linha com \n. Vazio = padrão do cliente.
+hud-prompt: '&b&lSEU SERVER &r&7» &fBaixe o pacote para ver as &alogos e imagens&f do servidor!'
+# [EN] Force the player to accept (true) or optional (false). With true, whoever declines is kicked by the client.
+# [PT] Obriga aceitar (true) ou opcional (false). Com true, quem recusa é desconectado pelo cliente.
+hud-forcar: false
+# [EN] Pack name (line 1 of the description, shown in the client pack list). & colour codes.
+# [PT] Nome do pack (linha 1 da descrição, na lista de pacotes do cliente). Cores com &.
+hud-pack-nome: '&bSEU SERVER &fHUD'
+# [EN] Pack description (line 2, below the name). & and \n.
+# [PT] Descrição do pack (linha 2, abaixo do nome). & e \n.
+hud-pack-descricao: '&7Imagens, logos e GIFs do servidor'
+# [EN] Pack icon/logo: drop a (preferably square 128x128/256x256) PNG in plugins/ArcherNpc/ with this name. Blank = no icon.
+# [PT] Ícone/logo: solte um PNG (de preferência quadrado 128x128/256x256) em plugins/ArcherNpc/ com este nome. Vazio = sem ícone.
+hud-logo: 'hud_logo.png'
+
+# ---------- IMAGE SIZE & POSITION (DEFAULTS) / TAMANHO E POSIÇÃO (PADRÃO) ----------
+# [EN] These are the DEFAULTS for new images. Each image can override them in the /npc hud GUI
+#      (saved per-image in hud_posicoes.yml). hud-exibir/altura/x/ascent below are just the fallback.
+# [PT] São os PADRÕES de imagens novas. Cada imagem pode sobrescrever no GUI /npc hud
+#      (salvo por imagem em hud_posicoes.yml). hud-exibir/altura/x/ascent abaixo são só o fallback.
+#   hud-altura  = scale / size (glyph height in px)            | escala / tamanho (altura do glifo em px)
+#   hud-x       = X position in px (+ right / - left)          | posição X em px (+ direita / - esquerda)
+#   hud-ascent  = Y position in px (higher = up; <= hud-altura)| posição Y em px (maior = sobe; <= hud-altura)
+#   hud-exibir  = title / actionbar / bossbar / chat           | onde aparece
+#   hud-hd-tile = on-screen px per HD tile (hud_imagens/hd/)   | px por tile das imagens HD
+hud-altura: 128
+hud-x: 0
+hud-ascent: 80
+hud-exibir: title
+hud-hd-tile: 16
+# [EN] Boss bar mode only: bar colour (PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE) and bar fill 0..1.
+# [PT] Só no modo bossbar: cor da barra (PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE) e preenchimento 0..1.
+hud-bossbar-cor: 'PINK'
+hud-bossbar-progresso: 1.0
