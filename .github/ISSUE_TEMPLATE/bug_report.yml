@@ -1,0 +1,79 @@
+name: Bug report
+description: Something in the plugin does not work as documented.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got instead.
+      placeholder: Spawned an NPC with a GIF skin, the image showed static instead of animating.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact steps or commands, in order.
+      placeholder: |
+        1. /archernpc create ...
+        2. Assign a GIF via the GUI.
+        3. Look at the NPC from another client.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Server platform
+      options:
+        - Paper
+        - Folia
+    validations:
+      required: true
+
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft / server version
+      placeholder: "1.21.11"
+    validations:
+      required: true
+
+  - type: input
+    id: packetevents-version
+    attributes:
+      label: PacketEvents version
+      placeholder: "2.12.2"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0-beta"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client the bug was seen on
+      options:
+        - Vanilla
+        - Fabric
+        - Forge
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Server console output around the failure.
+      render: text
+    validations:
+      required: false
